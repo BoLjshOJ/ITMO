@@ -15,7 +15,6 @@ public class LuckyTickets {
     }
 
     public static int luckyTickets() {
-        // TODO implement
 
         return 0;
     }

@@ -1,5 +1,7 @@
 package com.ifmo.lesson2;
 
+import java.util.Arrays;
+
 public class IntsOrdering {
     /*
      В три переменные a, b и c явно записаны программистом три целых попарно неравных
@@ -17,7 +19,7 @@ public class IntsOrdering {
      Возрастающая последовательность: -5, 0, 7
      */
     public static void main(String[] args) {
-        int a = 3, b = 9, c = -1;
+        int a = -8, b = 9, c = -1;
 
         String ordering = ordering(a, b, c);
 
@@ -25,9 +27,10 @@ public class IntsOrdering {
     }
 
     public static String ordering(int a, int b, int c) {
-        // TODO implement
+        int[] mass = {a, b, c,};
+        Arrays.sort(mass);
 
         return "Числа в переменных a, b и c: " + a + ", " + b + ", " + c + "\n" +
-                "Возрастающая последовательность: " + 0 + ", " + 0 + ", " + 0;
+                "Возрастающая последовательность: " + mass[0] + ", " + mass[1] + ", " + mass[2];
     }
 }
