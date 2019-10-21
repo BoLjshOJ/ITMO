@@ -15,7 +15,7 @@ public class IsInInterval {
 
         String inInterval = isInInterval(rnd);
 
-        System.out.println("Число " + inInterval + " в интервале (25,100)");
+        System.out.println(inInterval);
     }
 
     public static int randomInt() {
@@ -29,7 +29,6 @@ public class IsInInterval {
     }
 
     public static String isInInterval(int rnd) {
-        return (rnd > 25 && rnd < 100) ? rnd + " содержится" : rnd + " не содержится";
+        return "Число " + ((rnd > 25 && rnd < 100) ? rnd + " содержится в интервале (25,100)" : rnd + " не содержится в интервале (25,100)");
     }
-
 }
