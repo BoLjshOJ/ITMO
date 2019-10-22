@@ -15,7 +15,20 @@ public class LuckyTickets {
     }
 
     public static int luckyTickets() {
+        int countOfTicket = 0;
 
-        return 0;
+        for (int i = 1001; i < 1_000_000; i++) {
+            int i1 = i / 100_000 % 10;
+            int i2 = i / 10_000 % 10;
+            int i3 = i / 1_000 % 10;
+            int i4 = i / 100 % 10;
+            int i5 = i / 10 % 10;
+            int i6 = i % 10;
+
+            if ((i1 + i2 + i3) == (i4 + i5 + i6)){
+                countOfTicket++;
+            }
+        }
+        return countOfTicket;
     }
 }
