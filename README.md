@@ -8,3 +8,5 @@ start `15.10.2019`
 `17.10.2019` [Лекция 2. Java Basics](https://drive.google.com/open?id=15N1WPmLyDg5robOQ57D3WDcK7f7xPuu2)
 
 `19.10.2019` [Лекция 3. Strings and Arrays](https://drive.google.com/open?id=12kYQPxRiJ43igvs1YwmyCuriaoT7B-Vo)
+
+`22.10.2019` [Лекция 4. Objects](https://drive.google.com/open?id=11oj5kfnobDCkFjFq-S66D6zhyWuWpBOo)
