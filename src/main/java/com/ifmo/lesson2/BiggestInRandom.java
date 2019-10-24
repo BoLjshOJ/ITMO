@@ -21,7 +21,7 @@ public class BiggestInRandom {
     public static int threeDigitRandom() {
         Random rnd = new Random();
         int min = 100;
-        int max = 1000;
+        int max = 999;
         int diff = max - min;
         int result = rnd.nextInt(diff + 1);
         result += min;

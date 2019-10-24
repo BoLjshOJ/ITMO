@@ -56,7 +56,7 @@ public class WallClock {
         } else if (remainingHours >= 3 && remainingHours < 4){
             result = "Осталось 3 часа";
         } else if (remainingHours >= 4 && remainingHours < 5){
-            result = "Осталось 4 часов";
+            result = "Осталось 4 часа";
         } else if (remainingHours >= 5 && remainingHours < 6){
             result = "Осталось 5 часов";
         } else if (remainingHours >= 6 && remainingHours < 7){
