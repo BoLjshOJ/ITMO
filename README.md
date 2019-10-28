@@ -10,3 +10,7 @@ start `15.10.2019`
 `19.10.2019` [Лекция 3. Strings and Arrays](https://drive.google.com/open?id=12kYQPxRiJ43igvs1YwmyCuriaoT7B-Vo)
 
 `22.10.2019` [Лекция 4. Objects](https://drive.google.com/open?id=11oj5kfnobDCkFjFq-S66D6zhyWuWpBOo)
+
+`24.10.2019` [Лекция 5. Objects. Принципы ООП](https://drive.google.com/open?id=1b5MhTRGNrf6ijjJ8vKv1x0IP2dUNNjzm)
+
+`26.10.2019` [Лекция 6. Interfaces and Abstract classes](https://drive.google.com/open?id=1pCASi6nQ_87BFhFYE4kDXX65vyMDfMaj)

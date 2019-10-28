@@ -1,20 +1,10 @@
-package com.ifmo.lesson4;
+package com.ifmo.lesson5;
 
-/**
- * Односвязный список, где каждый предыдущий
- * элемент харнит ссылку на следующий. Список
- * оканчивается ссылкой со значением {@code null}.
- */
 public class LinkedList {
-    /** Ссылка на первый элемент списка. */
+
     private Item head;
 
-    /**
-     * Добавляет значение в конец списка.
-     *
-     * @param val Значение, которое будет добавлено.
-     */
-    public void add(Object val) {
+    public void add(Shape val) {
         if (head == null) {
             head = new Item(val);
 
@@ -47,10 +37,10 @@ public class LinkedList {
         }
     }
 
-    public Object get(int i) {
+    public Item get(int i) {
         Item item = find(i);
 
-        return item == null ? null : item.value;
+        return item;
     }
 
     public Object remove(int i) {
