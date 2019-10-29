@@ -13,7 +13,7 @@ public class Fibonacci {
         ArrayList<Integer> listOfInteger = new ArrayList<>();
         listOfInteger.add(1);
         listOfInteger.add(1);
-        for (int i = 2; i <= 11; i++) {
+        for (int i = 2; i < 11; i++) {
             listOfInteger.add(listOfInteger.get(i - 1) + listOfInteger.get(i - 2));
         }
 
