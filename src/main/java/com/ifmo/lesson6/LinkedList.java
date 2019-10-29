@@ -68,7 +68,7 @@ public class LinkedList implements List, Stack, Queue {
     public Object get(int i) {
         Item item = find(i);
 
-        return item == null ? null : item.value;
+        return item == null ? 0 : item.value;
     }
 
     /** {@inheritDoc} */

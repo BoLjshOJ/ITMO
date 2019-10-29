@@ -60,7 +60,7 @@ public class ArrayList implements List {
     /** {@inheritDoc} */
     @Override
     public Object remove(int i) {
-        Objects.checkIndex(i, size);
+        if (i > size) return 0;
         final Object[] es = values;
         Object oldValue = es[i];
         fastRemove(es, i);
