@@ -51,7 +51,7 @@ public class LinkedList implements List, Stack, Queue {
     @Override
     public Object take() {
         final Item item = head;
-        return (item == null) ? null : item.value;
+        return (item == null) ? null : unlinkFirst(item);
     }
 
     private Object unlinkFirst(Item item){
