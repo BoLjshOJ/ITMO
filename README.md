@@ -14,3 +14,5 @@ start `15.10.2019`
 `24.10.2019` [Лекция 5. Objects. Принципы ООП](https://drive.google.com/open?id=1b5MhTRGNrf6ijjJ8vKv1x0IP2dUNNjzm)
 
 `26.10.2019` [Лекция 6. Interfaces and Abstract classes](https://drive.google.com/open?id=1pCASi6nQ_87BFhFYE4kDXX65vyMDfMaj)
+
+`29.10.2019` [Лекция 7. Методы класса Object](https://drive.google.com/open?id=1i6kwYC-CKxJrXOuQR96Wq48_OQ3XHjE1)
