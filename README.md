@@ -16,3 +16,5 @@ start `15.10.2019`
 `26.10.2019` [Лекция 6. Interfaces and Abstract classes](https://drive.google.com/open?id=1pCASi6nQ_87BFhFYE4kDXX65vyMDfMaj)
 
 `29.10.2019` [Лекция 7. Методы класса Object](https://drive.google.com/open?id=1i6kwYC-CKxJrXOuQR96Wq48_OQ3XHjE1)
+
+`31.10.2019` [Лекция 8. Wrapper types](https://drive.google.com/open?id=1VzMFGrglW1jeDO3o2YK2GBPY_DFjXf_c)
