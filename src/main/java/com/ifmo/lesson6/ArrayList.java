@@ -15,7 +15,7 @@ import java.util.*;
  * |0|1|3|4|5|_|
  * Теперь при итерации по ним после 1 будет идти сразу 3, как в связном списке.
  */
-public class ArrayList implements List {
+public class ArrayList<T> implements List<T> {
     private static final int DEFAULT_SIZE = 10;
     private int size;
 
@@ -43,7 +43,7 @@ public class ArrayList implements List {
 
     /** {@inheritDoc} */
     @Override
-    public void add(Object val) {
+    public void add(T val) {
         if (size == values.length){
             grow();
         }
@@ -53,19 +53,19 @@ public class ArrayList implements List {
 
     /** {@inheritDoc} */
     @Override
-    public Object get(int i) {
-        return values[i];
+    public T get(int i) {
+        return (T) values[i];
     }
 
     /** {@inheritDoc} */
     @Override
-    public Object remove(int i) {
-        if (i > size) return 0;
+    public T remove(int i) {
+        if (i > size) return null;
         final Object[] es = values;
         Object oldValue = es[i];
         fastRemove(es, i);
 
-        return oldValue;
+        return (T) oldValue;
     }
 
     private void fastRemove(Object[] es, int i){
@@ -79,7 +79,7 @@ public class ArrayList implements List {
     /** {@inheritDoc} */
     @Override
     public Iterator iterator() {
-        return new ArrayListIterator();
+        return new ArrayListIterator<>();
     }
 
     private Object[] grow(int minCapacity) {
@@ -96,7 +96,7 @@ public class ArrayList implements List {
         return grow(size + 1);
     }
 
-    private class ArrayListIterator implements Iterator {
+    private class ArrayListIterator<T> implements Iterator<T> {
         int cursor;
         int lastRet = -1;
 
@@ -106,7 +106,7 @@ public class ArrayList implements List {
         }
 
         @Override
-        public Object next() {
+        public T next() {
             int i = cursor;
             if (i >= size) {
                 throw new NoSuchElementException();
@@ -116,7 +116,7 @@ public class ArrayList implements List {
                 throw new ConcurrentModificationException();
             }
             cursor = i + 1;
-            return elementData[lastRet = i];
+            return (T) elementData[lastRet = i];
         }
     }
 }

@@ -8,24 +8,24 @@ import java.util.NoSuchElementException;
  * элемент харнит ссылку на следующий. Список
  * оканчивается ссылкой со значением {@code null}.
  */
-public class LinkedList implements List, Stack, Queue {
+public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
     /** Ссылка на первый элемент списка. */
-    private Item head;
+    private Item<T> head;
 
     /** {@inheritDoc} */
     @Override
-    public void add(Object val) {
+    public void add(T val) {
         if (head == null) {
-            head = new Item(val);
+            head = new Item<>(val);
 
             return;
         }
 
         //noinspection ConstantConditions
-        find(-1).next = new Item(val);
+        find(-1).next = new Item<>(val);
     }
 
-    private Item find(int i) {
+    private Item<T> find(int i) {
         if (head == null)
             return null;
 
@@ -35,7 +35,7 @@ public class LinkedList implements List, Stack, Queue {
         int cnt = 1;
 
         for (Item prev = head;;) {
-            Item next = prev.next;
+            Item<T> next = prev.next;
 
             if (next == null)
                 return i < 0 ? prev : null;
@@ -49,14 +49,14 @@ public class LinkedList implements List, Stack, Queue {
 
     /** {@inheritDoc} */
     @Override
-    public Object take() {
-        final Item item = head;
+    public T take() {
+        final Item<T> item = head;
         return (item == null) ? null : unlinkFirst(item);
     }
 
-    private Object unlinkFirst(Item item){
-        final Object element = item.value;
-        final Item next = item.next;
+    private T unlinkFirst(Item<T> item){
+        final T element = item.value;
+        final Item<T> next = item.next;
         item.value= null;
         item.next = null;
         head = next;
@@ -65,28 +65,28 @@ public class LinkedList implements List, Stack, Queue {
 
     /** {@inheritDoc} */
     @Override
-    public Object get(int i) {
-        Item item = find(i);
+    public T get(int i) {
+        Item<T> item = find(i);
 
-        return item == null ? 0 : item.value;
+        return item == null ? null : item.value;
     }
 
     /** {@inheritDoc} */
     @Override
-    public Object remove(int i) {
+    public T remove(int i) {
         if (head == null)
             return null;
 
         if (i == 0) {
-            Item h = head;
+            Item<T> h = head;
 
             head = head.next;
 
             return h.value;
         }
 
-        Item prev = find(i - 1);
-        Item cur;
+        Item<T> prev = find(i - 1);
+        Item<T> cur;
 
         if (prev != null && (cur = prev.next) != null) {
             prev.next = cur.next;
@@ -99,11 +99,11 @@ public class LinkedList implements List, Stack, Queue {
 
     /** {@inheritDoc} */
     @Override
-    public Iterator iterator() {
-        return new LinkedListIterator();
+    public Iterator<T> iterator() {
+        return new LinkedListIterator<>();
     }
 
-    private class LinkedListIterator implements Iterator{
+    private class LinkedListIterator<T> implements Iterator<T>{
         private int nextIndex;
 
         @Override
@@ -112,11 +112,11 @@ public class LinkedList implements List, Stack, Queue {
         }
 
         @Override
-        public Object next() {
+        public T next() {
             if (!hasNext()){
                 throw new NoSuchElementException();
             }
-            Item item = find(nextIndex);
+            Item<T> item = (Item<T>) find(nextIndex);
             nextIndex++;
             return item.value;
         }
@@ -124,17 +124,17 @@ public class LinkedList implements List, Stack, Queue {
 
     /** {@inheritDoc} */
     @Override
-    public void push(Object value) {
-        final Item f = head;
-        final Item newItem = new Item(value);
+    public void push(T value) {
+        final Item<T> f = head;
+        final Item<T> newItem = new Item<>(value);
         head = newItem;
         newItem.next = f;
     }
 
     /** {@inheritDoc} */
     @Override
-    public Object pop() {
-        final Item item = head;
+    public T pop() {
+        final Item<T> item = head;
         return (item == null) ? null : unlinkFirst(item);
     }
 }
