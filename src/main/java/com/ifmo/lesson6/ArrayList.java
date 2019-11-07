@@ -17,17 +17,15 @@ import java.util.*;
  */
 public class ArrayList<T> implements List<T> {
     private static final int DEFAULT_SIZE = 10;
-    private int size;
 
     private Object[] values;
-
-    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+    private int size;
 
     /**
      * Создаёт новый {@link #ArrayList} с размером внутреннего массива по умолчанию.
      */
     public ArrayList() {
-        values = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+        this(DEFAULT_SIZE);
     }
 
     /**
@@ -38,7 +36,6 @@ public class ArrayList<T> implements List<T> {
      */
     public ArrayList(int initialSize) {
         values = new Object[initialSize];
-        size = values.length;
     }
 
     /** {@inheritDoc} */
@@ -47,33 +44,30 @@ public class ArrayList<T> implements List<T> {
         if (size == values.length){
             grow();
         }
-        values[size] = val;
-        size++;
+        values[size++] = val;
+    }
+
+    private void grow() {
+        values = Arrays.copyOf(values, values.length * 2);
     }
 
     /** {@inheritDoc} */
     @Override
     public T get(int i) {
+        if (i < 0 || i >= size) return null;
         return (T) values[i];
     }
 
     /** {@inheritDoc} */
     @Override
     public T remove(int i) {
-        if (i > size) return null;
-        final Object[] es = values;
-        Object oldValue = es[i];
-        fastRemove(es, i);
-
-        return (T) oldValue;
-    }
-
-    private void fastRemove(Object[] es, int i){
-        final int newSize;
-        if ((newSize = size - 1) > i){
-            System.arraycopy(es, i + 1, es, i, newSize - i);
+        if (i < 0 || i >= size) return null;
+        T val = (T) values[i];
+        for (int j = i; j < size - 1; j++) {
+            values[j] = values[j + 1];
         }
-        es[size = newSize] = null;
+        values[--size] = null;
+        return val;
     }
 
     /** {@inheritDoc} */
@@ -82,41 +76,17 @@ public class ArrayList<T> implements List<T> {
         return new ArrayListIterator<>();
     }
 
-    private Object[] grow(int minCapacity) {
-        int oldCapacity = values.length;
-        if (oldCapacity > 0 || values != DEFAULTCAPACITY_EMPTY_ELEMENTDATA){
-            int newCapacity = size + 1;
-            return values = Arrays.copyOf(values, newCapacity);
-        } else {
-            return values = new Object[Math.max(DEFAULT_SIZE, minCapacity)];
-        }
-    }
-
-    private Object[] grow() {
-        return grow(size + 1);
-    }
-
     private class ArrayListIterator<T> implements Iterator<T> {
-        int cursor;
-        int lastRet = -1;
+        private int index;
 
         @Override
         public boolean hasNext() {
-            return cursor != size;
+            return index < size;
         }
 
         @Override
-        public T next() {
-            int i = cursor;
-            if (i >= size) {
-                throw new NoSuchElementException();
-            }
-            Object[] elementData = values;
-            if (i >= elementData.length){
-                throw new ConcurrentModificationException();
-            }
-            cursor = i + 1;
-            return (T) elementData[lastRet = i];
+        public T next(){
+            return (T) get(index++);
         }
     }
 }

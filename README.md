@@ -18,3 +18,7 @@ start `15.10.2019`
 `29.10.2019` [Лекция 7. Методы класса Object](https://drive.google.com/open?id=1i6kwYC-CKxJrXOuQR96Wq48_OQ3XHjE1)
 
 `31.10.2019` [Лекция 8. Wrapper types](https://drive.google.com/open?id=1VzMFGrglW1jeDO3o2YK2GBPY_DFjXf_c)
+
+`02.11.2019` [Лекция 9. Generics](https://drive.google.com/open?id=10bsfX6tGFfRxC7p8hVOWIoHKyVi0SRGu)
+
+`05.11.2019` [Лекция 10. Enum and Collections](https://drive.google.com/open?id=1LdsV-SLxlF22zaQEmEwf0df7QJTI7YzW)
