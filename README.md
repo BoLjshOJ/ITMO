@@ -22,3 +22,5 @@ start `15.10.2019`
 `02.11.2019` [Лекция 9. Generics](https://drive.google.com/open?id=10bsfX6tGFfRxC7p8hVOWIoHKyVi0SRGu)
 
 `05.11.2019` [Лекция 10. Enum and Collections](https://drive.google.com/open?id=1LdsV-SLxlF22zaQEmEwf0df7QJTI7YzW)
+
+`07.11.2019` [Лекция 11. Map and Set](https://drive.google.com/open?id=12ELbxWbcovPpTnxL2ScNxx3nAlFQfzb1)
