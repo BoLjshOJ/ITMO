@@ -24,3 +24,5 @@ start `15.10.2019`
 `05.11.2019` [Лекция 10. Enum and Collections](https://drive.google.com/open?id=1LdsV-SLxlF22zaQEmEwf0df7QJTI7YzW)
 
 `07.11.2019` [Лекция 11. Map and Set](https://drive.google.com/open?id=12ELbxWbcovPpTnxL2ScNxx3nAlFQfzb1)
+
+`09.11.2019` [Лекция 12. Лямбда-выражения](https://drive.google.com/open?id=1ee6k9VuPxP17d0fKg3NX69nUKAuP7dai)

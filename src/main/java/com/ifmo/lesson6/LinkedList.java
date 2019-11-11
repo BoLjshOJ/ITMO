@@ -12,129 +12,104 @@ public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
     /** Ссылка на первый элемент списка. */
     private Item<T> head;
 
+    private class LinkedListIterator implements Iterator<T> {
+        Item<T> item = head;
+
+        @Override
+        public boolean hasNext(){
+            return item != null;
+        }
+
+        @Override
+        public T next(){
+            if (hasNext()){
+                T value = item.value;
+                item = item.next;
+                return value;
+            }
+            return null;
+        }
+    }
+
     /** {@inheritDoc} */
     @Override
     public void add(T val) {
         if (head == null) {
             head = new Item<>(val);
-
-            return;
-        }
-
-        //noinspection ConstantConditions
-        find(-1).next = new Item<>(val);
-    }
-
-    private Item<T> find(int i) {
-        if (head == null)
-            return null;
-
-        if (i == 0)
-            return head;
-
-        int cnt = 1;
-
-        for (Item prev = head;;) {
-            Item<T> next = prev.next;
-
-            if (next == null)
-                return i < 0 ? prev : null;
-
-            if (cnt++ == i)
-                return next;
-
-            prev = next;
+        } else {
+            Item item = head;
+            while (item.next != null){
+                item = item.next;
+            }
+            item.next = new Item<T>(val);
         }
     }
 
     /** {@inheritDoc} */
     @Override
     public T take() {
-        final Item<T> item = head;
-        return (item == null) ? null : unlinkFirst(item);
-    }
-
-    private T unlinkFirst(Item<T> item){
-        final T element = item.value;
-        final Item<T> next = item.next;
-        item.value= null;
-        item.next = null;
-        head = next;
-        return element;
+        return remove(0);
     }
 
     /** {@inheritDoc} */
     @Override
     public T get(int i) {
         Item<T> item = find(i);
-
-        return item == null ? null : item.value;
+        return item != null ? item.value : null;
     }
 
     /** {@inheritDoc} */
     @Override
     public T remove(int i) {
-        if (head == null)
-            return null;
-
-        if (i == 0) {
-            Item<T> h = head;
-
-            head = head.next;
-
-            return h.value;
+        T value = null;
+        if (i == 0){
+            if (head != null){
+                value = head.value;
+                head = head.next;
+            }
+        } else if (i > 0){
+            Item<T> item = find(i - 1);
+            if (item != null) {
+                if (item.next != null){
+                    value = item.next.value;
+                    item.next = item.next.next;
+                }
+            }
         }
-
-        Item<T> prev = find(i - 1);
-        Item<T> cur;
-
-        if (prev != null && (cur = prev.next) != null) {
-            prev.next = cur.next;
-
-            return cur.value;
-        }
-
-        return null;
+        return value;
     }
 
     /** {@inheritDoc} */
     @Override
     public Iterator<T> iterator() {
-        return new LinkedListIterator<>();
-    }
-
-    private class LinkedListIterator<T> implements Iterator<T>{
-        private int nextIndex;
-
-        @Override
-        public boolean hasNext() {
-            return !(find(nextIndex) == null);
-        }
-
-        @Override
-        public T next() {
-            if (!hasNext()){
-                throw new NoSuchElementException();
-            }
-            Item<T> item = (Item<T>) find(nextIndex);
-            nextIndex++;
-            return item.value;
-        }
+        return new LinkedListIterator();
     }
 
     /** {@inheritDoc} */
     @Override
     public void push(T value) {
-        final Item<T> f = head;
-        final Item<T> newItem = new Item<>(value);
-        head = newItem;
-        newItem.next = f;
+        Item item = head;
+        head = new Item<T>(value);
+        head.next = item;
     }
 
     /** {@inheritDoc} */
     @Override
     public T pop() {
-        final Item<T> item = head;
-        return (item == null) ? null : unlinkFirst(item);
+        return remove(0);
+    }
+
+    private Item<T> find(int i){
+        if (i == 0) {
+            return head;
+        } else if (i > 0){
+            Item<T> item = head;
+            for (int j = 0; j <= i; j++){
+                if (item == null) return null;
+                if (j == i) return item;
+                item = item.next;
+            }
+        }
+        return null;
     }
 }
