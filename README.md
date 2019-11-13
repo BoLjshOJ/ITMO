@@ -26,3 +26,5 @@ start `15.10.2019`
 `07.11.2019` [Лекция 11. Map and Set](https://drive.google.com/open?id=12ELbxWbcovPpTnxL2ScNxx3nAlFQfzb1)
 
 `09.11.2019` [Лекция 12. Лямбда-выражения](https://drive.google.com/open?id=1ee6k9VuPxP17d0fKg3NX69nUKAuP7dai)
+
+`12.11.2019` [Лекция 13. Stream API](https://drive.google.com/open?id=1RvHpjB_bAeTAqFXyE8z12Ii_pcjh3kyp)
