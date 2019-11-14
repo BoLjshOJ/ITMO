@@ -12,12 +12,12 @@ import static java.util.stream.Collectors.*;
 
 public class StreamTasks {
 
-    private static class Person {
-        private final String name;
-        private final int age;
-        private final String country;
+    static class Person {
+        final String name;
+        final int age;
+        final String country;
 
-        public Person(String name, int age, String country) {
+        Person(String name, int age, String country) {
             this.name = name;
             this.age = age;
             this.country = country;
