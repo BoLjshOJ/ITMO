@@ -28,3 +28,5 @@ start `15.10.2019`
 `09.11.2019` [Лекция 12. Лямбда-выражения](https://drive.google.com/open?id=1ee6k9VuPxP17d0fKg3NX69nUKAuP7dai)
 
 `12.11.2019` [Лекция 13. Stream API](https://drive.google.com/open?id=1RvHpjB_bAeTAqFXyE8z12Ii_pcjh3kyp)
+
+`14.11.2019` [Лекция 14. Exceptions](https://drive.google.com/open?id=1KgtH6scrv4Vu5-h51GEHGBRkmQAzr2ii)
