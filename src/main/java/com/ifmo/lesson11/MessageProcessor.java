@@ -3,6 +3,8 @@ package com.ifmo.lesson11;
 import com.ifmo.lesson11.inner.Message;
 import com.ifmo.lesson11.inner.MessagePriority;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -17,6 +19,9 @@ public class MessageProcessor {
 
     private static final String SEPARATOR_1 = " ";
     private static final String SEPARATOR_2 = ",";
+
+    Deque<Message> messages = new LinkedList<>();
+    Deque<Message> cash = new LinkedList<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -78,11 +83,15 @@ public class MessageProcessor {
     }
 
     private void newMessage(Message message) {
+        messages.offerFirst(message);
         System.out.println("Added message for processing: " + message);
     }
 
     private void processMessages() {
-
+        cash.clear();
+        while (messages.peekFirst() != null){
+            process(messages.pollLast());
+        }
     }
 
     private void process(Message message) {
@@ -94,10 +103,20 @@ public class MessageProcessor {
     }
 
     private void undo(int steps) {
+        cash.clear();
+        for (int i = 0; i < steps; i++) {
+            if (messages.peekFirst() == null) break;
 
+            Message message = messages.pollFirst();
+            cash.offerFirst(message);
+            cancel(message);
+        }
     }
 
     private void redo(int steps) {
-
+        for (int i = 0; i < steps; i++) {
+            if (cash.peekFirst() == null) break;
+            newMessage(cash.pollFirst());
+        }
     }
 }

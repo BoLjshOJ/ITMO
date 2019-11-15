@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CollectionsUtils {
+public class CollectionUtils {
     public static <T> Iterable<T> view(Iterable<T>...iterables){
         if (iterables.length == 0){
             return List.of();
