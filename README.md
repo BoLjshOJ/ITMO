@@ -32,3 +32,5 @@ start `15.10.2019`
 `14.11.2019` [Лекция 14. Exceptions](https://drive.google.com/open?id=1KgtH6scrv4Vu5-h51GEHGBRkmQAzr2ii)
 
 `16.11.2019` [Лекция 15. Java IO](https://drive.google.com/open?id=1JsCPiCUZK3FAV2amkqMa0RX7z7q8oX-M)
+
+`19.11.2019` [Лекция 16. Serialization](https://drive.google.com/open?id=1VvMlDyNlhydQ1MNCG3yQjsyhd1ZY3SNc)

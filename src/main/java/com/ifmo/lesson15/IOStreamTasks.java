@@ -1,6 +1,7 @@
 package com.ifmo.lesson15;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,6 +27,10 @@ public class IOStreamTasks {
 
         encrypt(src, encrypt, pass);
         encrypt(encrypt, decrypt, pass);
+
+        List<File> spliter= split(src, new File("src/main/resources/lesson15"), 1000000);
+        File dist = new File("src/main/resources/lesson15/assembly.txt");
+        assembly(spliter, dist);
     }
 
     /**
@@ -59,7 +64,25 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static List<File> split(File file, File dstDir, int size) throws IOException {
-        return List.of();
+        if (!dstDir.exists()) dstDir.mkdir();
+
+        List<File> listOfFiles = new ArrayList<>();
+        byte[] buffer = new byte[size];
+        int counter = 0;
+        try(InputStream in = new FileInputStream(file)){
+            while (true) {
+                int len;
+                if ((len = in.read(buffer)) < 0) break;
+                counter++;
+                File splitFile = new File(dstDir.getAbsoluteFile() + "/" + file.getName() + "_" + counter);
+                listOfFiles.add(splitFile);
+                try(OutputStream out = new FileOutputStream(splitFile)){
+                    out.write(buffer, 0, len);
+                    out.flush();
+                }
+            }
+        }
+        return listOfFiles;
     }
 
     /**
@@ -70,7 +93,18 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static void assembly(List<File> files, File dst) throws IOException {
+        byte[] buffer = new byte[9999];
 
+        try (OutputStream out = new FileOutputStream(dst)){
+            for (File f : files){
+                try (InputStream in = new FileInputStream(f)) {
+                    int len;
+                    while ((len = in.read(buffer)) > 0){
+                        out.write(buffer, 0, len);
+                    }
+                }
+            }
+        }
     }
 
     /**
