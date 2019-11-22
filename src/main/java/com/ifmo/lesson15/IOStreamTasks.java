@@ -12,7 +12,7 @@ public class IOStreamTasks {
     public static void main(String[] args) throws IOException {
         File encrypt = new File("src/main/resources/lesson15/encrypt.txt");
         File decrypt = new File("src/main/resources/lesson15/decrypt.txt");
-        File src = new File("src/main/resources/wap.txt");
+        File src = new File("src/main/resources/lesson15/test.txt");
         File pass = new File("src/main/resources/lesson15/password.txt");
 
         try (InputStream in = new FileInputStream(src);

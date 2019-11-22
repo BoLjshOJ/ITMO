@@ -34,3 +34,5 @@ start `15.10.2019`
 `16.11.2019` [Лекция 15. Java IO](https://drive.google.com/open?id=1JsCPiCUZK3FAV2amkqMa0RX7z7q8oX-M)
 
 `19.11.2019` [Лекция 16. Serialization](https://drive.google.com/open?id=1VvMlDyNlhydQ1MNCG3yQjsyhd1ZY3SNc)
+
+`21.11.2019` [Лекция 17. Design Patterns](https://drive.google.com/open?id=1YPY_mTXeT6Gk4AjMeIfH13bn90MtzXXa)
