@@ -25,8 +25,8 @@ public class IOStreamTasks {
             encrypt(in, out, "password");
         }
 
-        encrypt(src, encrypt, pass);
-        encrypt(encrypt, decrypt, pass);
+//        encrypt(src, encrypt, pass);
+//        encrypt(encrypt, decrypt, pass);
 
         List<File> spliter= split(src, new File("src/main/resources/lesson15"), 1000000);
         File dist = new File("src/main/resources/lesson15/assembly.txt");
@@ -41,14 +41,14 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static void copy(InputStream src, OutputStream dst) throws IOException {
-        BufferedInputStream bis = new BufferedInputStream(src);
-        BufferedOutputStream bos = new BufferedOutputStream(dst);
-
         byte[] buf = new byte[1024];
         int len;
-        while ((len = bis.read(buf)) > 0){
-            bos.write(buf, 0 , len);
-            bos.flush();
+        try {
+            while ((len = src.read(buf)) > 0) {
+                dst.write(buf, 0, len);
+            }
+        } finally {
+            dst.flush();
         }
     }
 
@@ -69,16 +69,14 @@ public class IOStreamTasks {
         List<File> listOfFiles = new ArrayList<>();
         byte[] buffer = new byte[size];
         int counter = 0;
+        int len;
         try(InputStream in = new FileInputStream(file)){
-            while (true) {
-                int len;
-                if ((len = in.read(buffer)) < 0) break;
+            while ((len = in.read(buffer)) > 0) {
                 counter++;
                 File splitFile = new File(dstDir.getAbsoluteFile() + "/" + file.getName() + "_" + counter);
                 listOfFiles.add(splitFile);
                 try(OutputStream out = new FileOutputStream(splitFile)){
                     out.write(buffer, 0, len);
-                    out.flush();
                 }
             }
         }
