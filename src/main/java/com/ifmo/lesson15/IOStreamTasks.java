@@ -132,8 +132,8 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static void encrypt(File src, File dst, File key) throws IOException {
-        try(InputStream in = new FileInputStream(src);
-            OutputStream out = new FileOutputStream(dst);
+        try(InputStream in = new BufferedInputStream(new FileInputStream(src));
+            OutputStream out = new BufferedOutputStream(new FileOutputStream(dst));
             InputStream fileKey = new FileInputStream(key)) {
 
             String pass = Arrays.toString(fileKey.readAllBytes());
