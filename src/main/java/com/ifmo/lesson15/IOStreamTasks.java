@@ -41,11 +41,11 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static void copy(InputStream src, OutputStream dst) throws IOException {
-        byte[] buf = new byte[1024];
+        byte[] buffer = new byte[999999];
         int len;
         try {
-            while ((len = src.read(buf)) > 0) {
-                dst.write(buf, 0, len);
+            while ((len = src.read(buffer)) > 0) {
+                dst.write(buffer, 0, len);
             }
         } finally {
             dst.flush();
@@ -64,18 +64,15 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static List<File> split(File file, File dstDir, int size) throws IOException {
-        if (!dstDir.exists()) dstDir.mkdir();
-
         List<File> listOfFiles = new ArrayList<>();
         byte[] buffer = new byte[size];
-        int counter = 0;
-        int len;
-        try(InputStream in = new FileInputStream(file)){
-            while ((len = in.read(buffer)) > 0) {
-                counter++;
-                File splitFile = new File(dstDir.getAbsoluteFile() + "/" + file.getName() + "_" + counter);
-                listOfFiles.add(splitFile);
-                try(OutputStream out = new FileOutputStream(splitFile)){
+        try (InputStream in = new FileInputStream(file)) {
+            for (int i = 1; ; i++) {
+                int len;
+                if ((len = in.read(buffer)) < 0) break;
+                File outFile = new File(dstDir.getAbsolutePath() + "/" + file.getName() + "_" + i);
+                listOfFiles.add(outFile);
+                try (OutputStream out = new FileOutputStream(outFile)) {
                     out.write(buffer, 0, len);
                 }
             }
@@ -91,14 +88,13 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static void assembly(List<File> files, File dst) throws IOException {
-        byte[] buffer = new byte[9999];
-
-        try (OutputStream out = new FileOutputStream(dst)){
-            for (File f : files){
-                try (InputStream in = new FileInputStream(f)) {
+        byte[] buf = new byte[1024];
+        try (OutputStream out = new FileOutputStream(dst)) {
+            for (File file : files) {
+                try (InputStream in = new FileInputStream(file)) {
                     int len;
-                    while ((len = in.read(buffer)) > 0){
-                        out.write(buffer, 0, len);
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
                     }
                 }
             }
