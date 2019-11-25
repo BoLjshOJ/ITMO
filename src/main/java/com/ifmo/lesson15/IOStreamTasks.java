@@ -10,7 +10,33 @@ import java.util.List;
  */
 public class IOStreamTasks {
     public static void main(String[] args) throws IOException {
+        File encrypt = new File("src/main/resources/lesson15/encrypt.txt");
+        File location = new File("src/main/resources/lesson15/dst.txt");
+        File decrypt = new File("src/main/resources/lesson15/decrypt.txt");
+        File src = new File("src/main/resources/lesson15/test.txt");
+        File pass = new File("src/main/resources/lesson15/password.txt");
 
+        try (InputStream in = new FileInputStream(src);
+             OutputStream out = new FileOutputStream(location)) {
+            copy(in, out);
+        }
+
+        try (InputStream in = new FileInputStream(src);
+             OutputStream out = new FileOutputStream(encrypt)){
+            encrypt(in, out, "password");
+        }
+
+        try (InputStream in = new FileInputStream(encrypt);
+             OutputStream out = new FileOutputStream(decrypt)){
+            encrypt(in, out, "password");
+        }
+
+        encrypt(src, encrypt, pass);
+        encrypt(encrypt, decrypt, pass);
+
+        List<File> spliter= split(src, new File("src/main/resources/lesson15"), 1000000);
+        File dist = new File("src/main/resources/lesson15/assembly.txt");
+        assembly(spliter, dist);
     }
 
     /**
@@ -21,7 +47,7 @@ public class IOStreamTasks {
      * @throws IOException Будет выброшен в случае ошибки.
      */
     public static void copy(InputStream src, OutputStream dst) throws IOException {
-        byte[] buffer = new byte[999999];
+        byte[] buffer = new byte[1000000];
         int len;
         try {
             while ((len = src.read(buffer)) > 0) {
