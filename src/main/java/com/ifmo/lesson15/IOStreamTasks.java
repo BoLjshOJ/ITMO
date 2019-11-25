@@ -10,27 +10,7 @@ import java.util.List;
  */
 public class IOStreamTasks {
     public static void main(String[] args) throws IOException {
-        File encrypt = new File("src/main/resources/lesson15/encrypt.txt");
-        File decrypt = new File("src/main/resources/lesson15/decrypt.txt");
-        File src = new File("src/main/resources/lesson15/test.txt");
-        File pass = new File("src/main/resources/lesson15/password.txt");
 
-        try (InputStream in = new FileInputStream(src);
-            OutputStream out = new FileOutputStream(encrypt)){
-            encrypt(in, out, "password");
-        }
-
-        try (InputStream in = new FileInputStream(encrypt);
-             OutputStream out = new FileOutputStream(decrypt)){
-            encrypt(in, out, "password");
-        }
-
-//        encrypt(src, encrypt, pass);
-//        encrypt(encrypt, decrypt, pass);
-
-        List<File> spliter= split(src, new File("src/main/resources/lesson15"), 1000000);
-        File dist = new File("src/main/resources/lesson15/assembly.txt");
-        assembly(spliter, dist);
     }
 
     /**
@@ -113,10 +93,9 @@ public class IOStreamTasks {
         byte[] pass = passphrase.getBytes();
         byte[] srcBytes = src.readAllBytes();
 
-        for (int i = 0; i < srcBytes.length; i++) {
-            for (int j = 0; j < pass.length; j++) {
-                srcBytes[i] ^= pass[j];
-            }
+        for (int i = 0, j = 0; i < srcBytes.length; i++) {
+            srcBytes[i] ^= pass[j];
+            j = ++j < pass.length ? j : 0;
         }
         dst.write(srcBytes);
     }
