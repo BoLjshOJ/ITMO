@@ -13,6 +13,8 @@ import java.io.InputStream;
 public class SawInputStream extends InputStream {
     private final int amplitude;
     private final long length;
+    private long checker;
+    private byte next;
 
     public SawInputStream(int amplitude, long length) {
         this.amplitude = amplitude;
@@ -21,7 +23,9 @@ public class SawInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
-        // TODO implement
-        return 0;
+        if (next < amplitude){
+            next = 0;
+        }
+        return (length - checker++) > 0 ? next++ : -1;
     }
 }

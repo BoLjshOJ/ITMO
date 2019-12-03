@@ -11,6 +11,7 @@ import java.util.Random;
 public class RandomInputStream extends InputStream {
     private final Random random;
     private final long length;
+    private long checker;
 
     public RandomInputStream(Random random, long length) {
         this.random = random;
@@ -20,6 +21,6 @@ public class RandomInputStream extends InputStream {
     @Override
     public int read() throws IOException {
         // TODO implement
-        return 0;
+        return (length - checker++) > 0 ? random.nextInt(Math.toIntExact(length)) : -1;
     }
 }

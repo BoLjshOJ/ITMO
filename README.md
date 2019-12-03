@@ -36,3 +36,11 @@ start `15.10.2019`
 `19.11.2019` [Лекция 16. Serialization](https://drive.google.com/open?id=1VvMlDyNlhydQ1MNCG3yQjsyhd1ZY3SNc)
 
 `21.11.2019` [Лекция 17. Design Patterns](https://drive.google.com/open?id=1YPY_mTXeT6Gk4AjMeIfH13bn90MtzXXa)
+
+`23.11.2019` [Лекция 18. Design Patterns 2](https://drive.google.com/open?id=1CgCXSPKzA06ZA6GVS6y1XSS-RRlkHmmS)
+
+`26.11.2019` [Лекция 19. Reflection API](https://drive.google.com/open?id=1FrglTAsh2fX8ygJTwYXv8QUS0ET_Mzg5)
+
+`28.11.2019` [Лекция 20. Multithreading](https://drive.google.com/open?id=1CZ1vg6qJhuDUky14ZIGYMisYd5jeY8bT)
+
+`30.11.2019` [Лекция 21. Multithreading 2](https://drive.google.com/open?id=1Jly58IaapDzoD3urg-9jgMpbiQRVzpXl)
