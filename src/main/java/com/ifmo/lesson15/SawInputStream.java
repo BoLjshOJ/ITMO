@@ -23,7 +23,7 @@ public class SawInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
-        if (next < amplitude){
+        if (next > amplitude){
             next = 0;
         }
         return (length - checker++) > 0 ? next++ : -1;
