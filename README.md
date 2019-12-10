@@ -44,3 +44,9 @@ start `15.10.2019`
 `28.11.2019` [Лекция 20. Multithreading](https://drive.google.com/open?id=1CZ1vg6qJhuDUky14ZIGYMisYd5jeY8bT)
 
 `30.11.2019` [Лекция 21. Multithreading 2](https://drive.google.com/open?id=1Jly58IaapDzoD3urg-9jgMpbiQRVzpXl)
+
+`03.12.2019` [Лекция 22. Multithreading 3](https://drive.google.com/open?id=1_OzzxT9ybcA_7pnRv3DG1HE1LN5v5O-8)
+
+`05.12.2019` [Лекция 23. Multithreading 4](https://drive.google.com/open?id=1b5yQqoUc2zht4ocm42NQGwdvx4Kc_ceW)
+
+`07.12.2019` [Лекция 24. Networking in Java](https://drive.google.com/open?id=1P1512C1U65n1VpSWxaqQsRI14UrrVBsH)
