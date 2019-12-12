@@ -50,3 +50,5 @@ start `15.10.2019`
 `05.12.2019` [Лекция 23. Multithreading 4](https://drive.google.com/open?id=1b5yQqoUc2zht4ocm42NQGwdvx4Kc_ceW)
 
 `07.12.2019` [Лекция 24. Networking in Java](https://drive.google.com/open?id=1P1512C1U65n1VpSWxaqQsRI14UrrVBsH)
+
+`10.12.2019` [Лекция 25. Apache Maven](https://drive.google.com/open?id=1iU3Bi1LGwkWIAAyxfQz7NVbieGeaN5fB)
