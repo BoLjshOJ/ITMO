@@ -1,16 +1,16 @@
 package com.ifmo.lesson24;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-
 public class Main {
-    public static void main(String[] args) {
-        BlockingQueue<String> queue = new LinkedBlockingQueue<>();
+    static BQueue<Integer> queue = new BQueue<>(10);
 
-        Worker worker = new Worker(queue);
-        Producer producer = new Producer(queue, 3);
+    public static void main(String[] args) {
+        Thread worker = new Thread(() -> queue.take());
+        Thread worker2 = new Thread(() -> queue.take());
+
+        Thread producer = new Thread(() -> queue.put(1));
 
         worker.start();
+        worker2.start();
         producer.start();
     }
 }
