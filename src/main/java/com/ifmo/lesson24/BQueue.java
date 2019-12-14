@@ -21,10 +21,12 @@ public class BQueue<T> {
                         queue.wait();
                     } catch (InterruptedException e){
                         e.printStackTrace();
+                        Thread.currentThread().interrupt();
                     }
                 }
                 queue.add(t);
                 System.out.println(Thread.currentThread().getName() + " add " + t);
+                queue.notify();
             }
         }
     }
@@ -38,11 +40,11 @@ public class BQueue<T> {
                         queue.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                        Thread.currentThread().interrupt();
                     }
                 }
-                result = queue.get(0);
+                result = queue.remove(0);
                 System.out.println(Thread.currentThread().getName() + " take " + result);
-                queue.remove(result);
                 queue.notify();
                 return result;
         }
