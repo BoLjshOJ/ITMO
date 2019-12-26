@@ -52,3 +52,15 @@ start `15.10.2019`
 `07.12.2019` [Лекция 24. Networking in Java](https://drive.google.com/open?id=1P1512C1U65n1VpSWxaqQsRI14UrrVBsH)
 
 `10.12.2019` [Лекция 25. Apache Maven](https://drive.google.com/open?id=1iU3Bi1LGwkWIAAyxfQz7NVbieGeaN5fB)
+
+`12.12.2019` [Лекция 26. Logging](https://drive.google.com/open?id=1yfCPZupWEkhIVOLK2xkIx-bkStL2oQnr)
+
+`14.12.2019` [Лекция 27. JUnit](https://drive.google.com/open?id=1BjuXRmGEL1DvFwOY08-A_tD6Cf0-csx5)
+
+`17.12.2019` [Лекция 28. Date and Time](https://drive.google.com/open?id=1eqYb4cbEaO2qDj827O_hXK3FARmXFsoH)
+
+`19.12.2019` [Лекция 29. XML](https://drive.google.com/open?id=1y6QR8bXty010DRgs4ml_yucQy7jia7kc)
+
+`21.12.2019` [Лекция 30. NIO](https://drive.google.com/open?id=1txwBy6QISppfNcb9gf8CEkT8zpGiG3qV)
+
+`24.12.2019` [Лекция 31. RDBMS](https://drive.google.com/open?id=1LTNmXL1euciLLHO--umpzIJeOPX-5QJC)
