@@ -64,3 +64,7 @@ start `15.10.2019`
 `21.12.2019` [Лекция 30. NIO](https://drive.google.com/open?id=1txwBy6QISppfNcb9gf8CEkT8zpGiG3qV)
 
 `24.12.2019` [Лекция 31. RDBMS](https://drive.google.com/open?id=1LTNmXL1euciLLHO--umpzIJeOPX-5QJC)
+
+`26.12.2019` [Лекция 32. SQL](https://drive.google.com/open?id=1URGjxKfIYAGki3pCrkx4VH7S2ZSuJIJZ)
+
+`28.12.2019` [Лекция 33. JDBC](https://drive.google.com/open?id=10gNK4rgh7MI5TXWDdkpCxKw_nzjrHhDg)
